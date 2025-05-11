@@ -10,7 +10,7 @@ This document tracks the to-do list for the Solana Explorer project. Completed i
 ### 1. Project Setup
 - [x] Initialize Next.js project with TypeScript
 - [x] Set up Tailwind CSS and Shadcn UI components
-- [ ] Configure project structure according to rules
+- [x] Configure project structure according to rules
 
 ### 2. Data Integration
 - [ ] Integrate Solana RPC API for blocks and transactions
