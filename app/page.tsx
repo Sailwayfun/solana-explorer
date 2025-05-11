@@ -1,9 +1,10 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import { Button } from "../components/ui/button";
 
 export default function Home() {
   return (
-    <div className={styles.page}>
+    <div className={`${styles.page} bg-blue-500 text-white p-4 rounded`}>
       <main className={styles.main}>
         <Image
           className={styles.logo}
@@ -90,6 +91,9 @@ export default function Home() {
           Go to nextjs.org →
         </a>
       </footer>
+      <div className="mt-8 flex justify-center">
+        <Button>Test Shadcn Button</Button>
+      </div>
     </div>
   );
 }
