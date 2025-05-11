@@ -13,7 +13,7 @@ This document tracks the to-do list for the Solana Explorer project. Completed i
 - [x] Configure project structure according to rules
 
 ### 2. UI Scaffolding
-- [ ] Create Blocks Overview Page (`/blocks`)
+- [x] Create Blocks Overview Page (`/blocks`)
 - [ ] Create Block Details Page (`/block/[blockId]`)
 - [ ] Create Transactions Overview Page (`/txs`)
 - [ ] Create Transaction Details Page (`/tx/[txId]`)
@@ -23,10 +23,10 @@ This document tracks the to-do list for the Solana Explorer project. Completed i
 - [ ] Implement data fetching with TanStack Query
 
 ### 3. UI Implementation
-- [ ] Blocks Overview Page (`/blocks`)
-  - [ ] Paginated list of recent blocks
-  - [ ] Display block number, timestamp, tx count, leader, status
-  - [ ] Clickable rows for block details
+- [x] Blocks Overview Page (`/blocks`)
+  - [x] Paginated list of recent blocks
+  - [x] Display block number, timestamp, tx count, leader, status
+  - [x] Clickable rows for block details
 - [ ] Block Details Page (`/block/[blockId]`)
   - [ ] Show block number, hash, parent, timestamp, tx list, validator, rewards, fees
   - [ ] Navigation to related transactions/validators
