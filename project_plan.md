@@ -12,7 +12,13 @@ This document tracks the to-do list for the Solana Explorer project. Completed i
 - [x] Set up Tailwind CSS and Shadcn UI components
 - [x] Configure project structure according to rules
 
-### 2. Data Integration
+### 2. UI Scaffolding
+- [ ] Create Blocks Overview Page (`/blocks`)
+- [ ] Create Block Details Page (`/block/[blockId]`)
+- [ ] Create Transactions Overview Page (`/txs`)
+- [ ] Create Transaction Details Page (`/tx/[txId]`)
+
+### 3. Data Integration
 - [ ] Integrate Solana RPC API for blocks and transactions
 - [ ] Implement data fetching with TanStack Query
 
