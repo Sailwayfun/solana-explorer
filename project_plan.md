@@ -14,7 +14,7 @@ This document tracks the to-do list for the Solana Explorer project. Completed i
 
 ### 2. UI Scaffolding
 - [x] Create Blocks Overview Page (`/blocks`)
-- [ ] Create Block Details Page (`/block/[blockId]`)
+- [x] Create Block Details Page (`/block/[blockId]`)
 - [ ] Create Transactions Overview Page (`/txs`)
 - [ ] Create Transaction Details Page (`/tx/[txId]`)
 
