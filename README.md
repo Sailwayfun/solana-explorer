@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Solana Blockchain Explorer
 
-## Getting Started
+A modern, user-friendly Solana blockchain explorer web application, inspired by [Solscan](https://solscan.io/) and [explorer.solana.com](https://explorer.solana.com/). This project aims to provide a clear, accessible, and comprehensive interface for exploring Solana blockchain data.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Blocks Overview Page** (`/blocks`):
+  - Paginated list of recent blocks
+  - Block number, timestamp, transaction count, leader/validator, status
+  - Clickable rows to navigate to block details
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Block Details Page** (`/block/[blockId]`):
+  - Detailed view for a specific block
+  - Block number, hash, parent block, timestamp
+  - List of transactions, validator address, rewards, fees, and metadata
+  - Navigation to related transactions and validator details
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Transactions Overview Page** (`/txs`):
+  - Paginated list of recent transactions
+  - Signature/hash, block number, timestamp, status, fee
+  - Clickable rows to view transaction details
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Transaction Details Page** (`/tx/[txId]`):
+  - Detailed transaction view
+  - Signature, block, timestamp, status, fee
+  - Accounts involved, instructions, logs, token transfers
 
-## Learn More
+## Technical Stack
 
-To learn more about Next.js, take a look at the following resources:
+- **Programming Language:** TypeScript
+- **Framework:** Next.js (App Router)
+- **Styling:** Tailwind CSS, Shadcn UI
+- **Data Fetching:** TanStack Query (react-query)
+- **Forms & Validation:** React Hook Form, Zod
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Setup & Usage
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. **Install dependencies:**
+   ```bash
+   npm install
+   # or
+   yarn install
+   # or
+   pnpm install
+   # or
+   bun install
+   ```
 
-## Deploy on Vercel
+2. **Run the development server:**
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   # or
+   pnpm dev
+   # or
+   bun dev
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. Open [http://localhost:3000](http://localhost:3000) to view the app.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Project Status
+
+This project is under active development. See [project_plan.md](./project_plan.md) for the current roadmap and progress.
+
+## References & Inspiration
+
+- [explorer.solana.com](https://explorer.solana.com/)
+- [solscan.io](https://solscan.io/)
+- [SolanaFM](https://solana.fm/)
+
+---
+
+For questions or contributions, please open an issue or pull request.
