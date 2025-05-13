@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} grid place-items-center p-10`}>
+        className={`${geistSans.variable} ${geistMono.variable}`}>
         {children}
       </body>
     </html>

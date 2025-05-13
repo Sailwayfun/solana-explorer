@@ -21,10 +21,15 @@ const mockBlocks: readonly Block[] = Array.from({ length: 100 }, (_, i) => ({
   reward: (0.01 + (i % 10) * 0.001).toFixed(5),
 }));
 
+import { BlockSlotSearch } from "./block-slot-search";
+
 export default function BlocksOverviewPage() {
   return (
-    <div className="w-full flex flex-col gap-5">
-      <BlocksOverviewClient blocks={mockBlocks} />
+    <div className="w-full grid place-items-center p-10">
+      <div className="w-full flex flex-col gap-5">
+        <BlockSlotSearch />
+        <BlocksOverviewClient blocks={mockBlocks} />
+      </div>
     </div>
   );
 }

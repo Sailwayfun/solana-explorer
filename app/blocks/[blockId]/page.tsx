@@ -4,8 +4,9 @@
  */
 import { Metadata } from "next";
 import { BlockDetailsCard } from "./BlockDetailsCard";
-import { getBlockDetails } from "@/app/blocks/get-block-details";
 import type { BlockDetails } from "@/types/block";
+import type { SolanaRpcBlock } from "@/types/solana-rpc-block";
+
 import React, { JSX } from "react";
 
 /**
@@ -54,7 +55,30 @@ const BlockDetailsPage = async ({
   if (!Number.isFinite(slot)) {
     notFound();
   }
-  const blockDetails: BlockDetails = await getBlockDetails(slot);
+  // Fetch real block data directly from the library (avoid server deadlock)
+  const { block, error } = await (await import("@/lib/getBlockBySlot")).default({ slot: slot });
+  if (error || !block) {
+    notFound();
+  }
+
+  // Map Solana RPC result to strict BlockDetails type
+  const mapRpcToBlockDetails = (rpc: SolanaRpcBlock, slot: number): BlockDetails => ({
+    slot,
+    blockhash: rpc.blockhash,
+    parentSlot: rpc.parentSlot,
+    timestamp: rpc.blockTime ? new Date(rpc.blockTime * 1000).toISOString() : '',
+    leader: rpc.blockLeader || '',
+    txCount: rpc.transactions?.length ?? 0,
+    rewards: rpc.rewards ? JSON.stringify(rpc.rewards) : '',
+    blockTime: rpc.blockTime ?? 0,
+    blockHeight: rpc.blockHeight ?? 0,
+    transactions: rpc.transactions
+      ? (rpc.transactions.map((tx: SolanaRpcBlock["transactions"][number]) =>
+          tx.transaction.signatures?.[0] || ""
+        ) as ReadonlyArray<string>)
+      : [],
+  });
+  const blockDetails = mapRpcToBlockDetails(block as SolanaRpcBlock, slot);
 
   /**
    * Calculate prev/next block IDs
@@ -63,7 +87,7 @@ const BlockDetailsPage = async ({
   const nextBlockId = slot + 1; // TODO: Optionally check for max block
 
   return (
-    <main className="container mx-auto py-6">
+    <main className="mx-auto py-6">
       <BlockDetailsCard
         blockDetails={blockDetails}
         prevBlockId={prevBlockId}
